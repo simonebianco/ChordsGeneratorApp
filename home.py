@@ -58,7 +58,7 @@ if st.checkbox("Generate", on_change=change_number):
     st.markdown(" ")
 
     if st.button("Solution"):
-        image_url = "{}\{}.jpg".format(Stato_Accordo_random, Accordo_random)
+        image_url = "{}/{}.jpg".format(Stato_Accordo_random, Accordo_random)
         image = Image.open(image_url)
         st.image(image, width=700) 
 
