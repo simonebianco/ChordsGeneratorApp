@@ -22,7 +22,7 @@ def create_df():
     return df
 
 
-df = create_df()
+df_quad = create_df()
 
 # pagina
 st.title('Chords Generator App')
@@ -35,16 +35,16 @@ st.markdown(" ")
 
 # initializing with a random number
 if "rn" not in st.session_state:
-    st.session_state["rn"] = randint(0, len(df['Accordo']))
+    st.session_state["rn"] = randint(0, len(df_quad['Accordo']))
 
 # callback function to change the random number stored in state
 def change_number():
-    st.session_state["rn"] = randint(0, len(df['Accordo']))
+    st.session_state["rn"] = randint(0, len(df_quad['Accordo']))
     return
 
 index =  st.session_state.rn
-Accordo_random = df['Accordo'].iloc[index]
-Stato_Accordo_random = df['Stato'].iloc[index]
+Accordo_random = df_quad['Accordo'].iloc[index]
+Stato_Accordo_random = df_quad['Stato'].iloc[index]
 
 # process
 if st.checkbox("Generate", on_change=change_number):
@@ -56,6 +56,6 @@ if st.checkbox("Generate", on_change=change_number):
     st.markdown(" ")
 
     if st.button("Solution"):
-        image_url = "{}/{}.jpg".format(Stato_Accordo_random, Accordo_random)
+        image_url = "{}\{}.jpg".format(Stato_Accordo_random, Accordo_random)
         image = Image.open(image_url)
         st.image(image, width=700) 
