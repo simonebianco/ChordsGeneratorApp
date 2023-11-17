@@ -34,17 +34,17 @@ st.write('Select the checkbox for generate a random chord')
 st.markdown(" ")
 
 # initializing with a random number
-if "rn" not in st.session_state:
-    st.session_state["rn"] = randint(0, len(df_quad['Accordo']))
+if "rn4" not in st.session_state:
+    st.session_state["rn4"] = randint(0, len(df_quad['Accordo']))
 
 # callback function to change the random number stored in state
 def change_number():
-    st.session_state["rn"] = randint(0, len(df_quad['Accordo']))
+    st.session_state["rn4"] = randint(0, len(df_quad['Accordo']))
     return
 
-index =  st.session_state.rn
-Accordo_random = df_quad['Accordo'].iloc[index]
-Stato_Accordo_random = df_quad['Stato'].iloc[index]
+index_4 =  st.session_state.rn4
+Accordo_random = df_quad['Accordo'].iloc[index_4]
+Stato_Accordo_random = df_quad['Stato'].iloc[index_4]
 
 # process
 if st.checkbox("Generate", on_change=change_number):
