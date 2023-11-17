@@ -43,8 +43,8 @@ def change_number():
     return
 
 index_4 =  st.session_state.rn4
-Accordo_random = df_quad['Accordo'].iloc[index_4]
-Stato_Accordo_random = df_quad['Stato'].iloc[index_4]
+Accordo_random_4 = df_quad['Accordo'].iloc[index_4]
+Stato_Accordo_random_4 = df_quad['Stato'].iloc[index_4]
 
 # process
 if st.checkbox("Generate", on_change=change_number):
@@ -52,10 +52,10 @@ if st.checkbox("Generate", on_change=change_number):
     for i in range(100):
         time.sleep(0.01)
         progress.progress(i+1)
-    st.write(Accordo_random)
+    st.write(Accordo_random_4)
     st.markdown(" ")
 
     if st.button("Solution"):
-        image_url = "{}\{}.jpg".format(Stato_Accordo_random, Accordo_random)
+        image_url = "{}\{}.jpg".format(Stato_Accordo_random_4, Accordo_random_4)
         image = Image.open(image_url)
         st.image(image, width=700) 
