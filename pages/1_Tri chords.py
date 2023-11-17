@@ -41,8 +41,8 @@ def change_number():
     st.session_state["rn3"] = randint(0, len(df_tri['Accordo']))
     return
 index_3 =  st.session_state.rn3
-Accordo_random = df_tri['Accordo'].iloc[index_3]
-Stato_Accordo_random = df_tri['Stato'].iloc[index_3]
+Accordo_random_3 = df_tri['Accordo'].iloc[index_3]
+Stato_Accordo_random_3 = df_tri['Stato'].iloc[index_3]
 
 # process
 if st.checkbox("Generate", on_change=change_number):
@@ -50,10 +50,10 @@ if st.checkbox("Generate", on_change=change_number):
     for i in range(100):
         time.sleep(0.01)
         progress.progress(i+1)
-    st.write(Accordo_random)
+    st.write(Accordo_random_3)
     st.markdown(" ")
 
     if st.button("Solution"):
-        image_url = "{}\{}.jpg".format(Stato_Accordo_random, Accordo_random)
+        image_url = "{}\{}.jpg".format(Stato_Accordo_random_3, Accordo_random_3)
         image = Image.open(image_url)
         st.image(image, width=700) 
