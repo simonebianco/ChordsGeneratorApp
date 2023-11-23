@@ -50,7 +50,7 @@ st.markdown("____")
 # boxes
 option_3 = st.selectbox('3 notes chords list:',(df_3['Accordo'].unique()), placeholder='Select one chord to visualize the position',index=None)
 if option_3 != None:
-    image_url = "{}\{}.jpg".format(option_3.split(' ')[1], option_3)
+    image_url = "{}/{}.jpg".format(option_3.split(' ')[1], option_3)
     image = Image.open(image_url)
     st.image(image, width=700) 
 
@@ -60,7 +60,7 @@ st.markdown(" ")
 
 option_4 = st.selectbox('4 notes chords list:',(df_4['Accordo'].unique()), placeholder='Select one chord to visualize the position',index=None)
 if option_4 != None:
-    image_url = "{}\{}.jpg".format(option_4.split(' ')[1] + ' ' + option_4.split(' ')[2], option_4)
+    image_url = "{}/{}.jpg".format(option_4.split(' ')[1] + ' ' + option_4.split(' ')[2], option_4)
     image = Image.open(image_url)
     st.image(image, width=700) 
 
