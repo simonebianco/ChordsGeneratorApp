@@ -8,7 +8,7 @@ from random import randint
 def create_df():
     note = {'Note': ['DO', 'REb', 'RE', 'MIb', 'MI', 'FA', 'SOLb', 'SOL', 'LAb', 'LA', 'SIb', 'SI']}
     posizione = {'Posizione': ['Fondamentale', 'Primo Rivolto', 'Secondo Rivolto', 'Terzo Rivolto']}
-    stato = {'Stato': ['Settima Maggiore']}
+    stato = {'Stato': ['Settima Maggiore', 'Settima Dominante']}
     note_df = pd.DataFrame(note)
     posizione_df = pd.DataFrame(posizione)
     stato_df = pd.DataFrame(stato)
@@ -27,7 +27,7 @@ df_quad = create_df()
 # pagina
 st.title('Chords Generator App')
 st.markdown("____")
-text = 'Selecting the checkbox automatically generates a chord, the solution of which can be seen later with the specific button. In the perimeter of random chords there are 48 possibilities, representing the 12 notes, in 4 turns for 1 state (Seventh Major).'
+text = 'Selecting the checkbox automatically generates a chord, the solution of which can be seen later with the specific button. In the perimeter of random chords there are 92 possibilities, representing the 12 notes, in 4 turns for 1 state (Seventh Major, Seventh Dominant).'
 st.write(text)
 st.markdown("____")
 st.write('Select the checkbox for generate a random chord')
