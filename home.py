@@ -24,7 +24,7 @@ def create_df_3notes():
 def create_df_4notes():
     note = {'Note': ['DO', 'REb', 'RE', 'MIb', 'MI', 'FA', 'SOLb', 'SOL', 'LAb', 'LA', 'SIb', 'SI']}
     posizione = {'Posizione': ['Fondamentale', 'Primo Rivolto', 'Secondo Rivolto', 'Terzo Rivolto']}
-    stato = {'Stato': ['Settima Maggiore']}
+    stato = {'Stato': ['Settima Maggiore', 'Settima Dominante']}
     note_df = pd.DataFrame(note)
     posizione_df = pd.DataFrame(posizione)
     stato_df = pd.DataFrame(stato)
