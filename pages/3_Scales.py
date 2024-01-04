@@ -55,6 +55,6 @@ if st.checkbox("Generate", on_change=change_number):
     st.markdown(" ")
 
     if st.button("Solution"):
-        image_url_scale = "{}\{}.jpg".format('Scale', Scala_random_sc)
+        image_url_scale = "{}/{}.jpg".format('Scale', Scala_random_sc)
         image_scale = Image.open(image_url_scale)
         st.image(image_scale, width=700) 
