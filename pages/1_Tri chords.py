@@ -34,11 +34,11 @@ st.markdown(" ")
 
 # initializing with a random number
 if "rn3" not in st.session_state:
-    st.session_state["rn3"] = randint(0, len(df_tri['Accordo']))
+    st.session_state["rn3"] = randint(0, len(df_tri['Accordo'])-1)
 
 # callback function to change the random number stored in state
 def change_number():
-    st.session_state["rn3"] = randint(0, len(df_tri['Accordo']))
+    st.session_state["rn3"] = randint(0, len(df_tri['Accordo'])-1)
     return
 index_3 =  st.session_state.rn3
 Accordo_random_3 = df_tri['Accordo'].iloc[index_3]
