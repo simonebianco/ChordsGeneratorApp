@@ -35,11 +35,11 @@ st.markdown(" ")
 
 # initializing with a random number
 if "rn4" not in st.session_state:
-    st.session_state["rn4"] = randint(0, len(df_quad['Accordo']))
+    st.session_state["rn4"] = randint(0, len(df_quad['Accordo'])-1)
 
 # callback function to change the random number stored in state
 def change_number():
-    st.session_state["rn4"] = randint(0, len(df_quad['Accordo']))
+    st.session_state["rn4"] = randint(0, len(df_quad['Accordo'])-1)
     return
 
 index_4 =  st.session_state.rn4
