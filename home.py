@@ -40,7 +40,7 @@ def create_df_4notes():
 # data frame
 def create_df_scales():
     note = {'Note': ['DO', 'REb', 'RE', 'MIb', 'MI', 'FA', 'FA#', 'SOL', 'LAb', 'LA', 'SIb', 'SI']}
-    stato = {'Stato': ['Maggiore']}
+    stato = {'Stato': ['Maggiore', 'Minore Naturale','Minore Armonica', 'Minore Melodica']}
     note_df = pd.DataFrame(note)
     stato_df = pd.DataFrame(stato)
     note_df['key'] = 1
