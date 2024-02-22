@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 from PIL import Image
+from random import randint
+import time
 
 
 # data frame
@@ -50,9 +52,30 @@ def create_df_scales():
     df['Scala'] = df['Note'] + ' ' + df['Stato']
     return df
 
+# data frame
+def create_df_intervals():
+    note = {'Note': ['DO','RE','MI','FA','SOL','LA','SI']}
+    alterazioni = {'Alterazioni': ['#','b','']}
+    note_df = pd.DataFrame(note)
+    alterazioni_df = pd.DataFrame(alterazioni)
+    note_df['key'] = 1
+    alterazioni_df['key'] = 1
+    df_sub = pd.merge(note_df, alterazioni_df, on ='key')
+    df_sub['Notes'] = df_sub['Note'] + '' + df_sub['Alterazioni']
+    df_sub.drop('Note', axis=1, inplace=True)
+    df_sub.drop('Alterazioni', axis=1, inplace=True)
+    df_sub['key'] = 1
+    df = pd.merge(df_sub, df_sub, on ='key')
+    df['Intervals'] = df['Notes_x'] + ' - ' + df['Notes_y']
+    df.drop('Notes_x', axis=1, inplace=True)
+    df.drop('Notes_y', axis=1, inplace=True)
+    df.drop('key', axis=1, inplace=True)
+    return df
+
 df_3 = create_df_3notes()
 df_4 = create_df_4notes()
 df_sc = create_df_scales()
+df_int = create_df_intervals()
 
 # pagina
 st.title('Chords Generator App')
@@ -86,6 +109,32 @@ option_sc = st.selectbox('Scales list:',(df_sc['Scala'].unique()), placeholder='
 if option_sc != None:
     image_url_sc = "{}/{}.jpg".format('Scale', option_sc)
     image_sc = Image.open(image_url_sc)
-    st.image(image_sc, width=700) 
+    st.image(image_sc, width=700)
+
+#Intervals
+st.markdown(" ")    
+st.markdown("____")
+text = 'Select the checkbox for generate a random interval'
+st.write(text)
+
+# initializing with a random number
+if "rn_int" not in st.session_state:
+    st.session_state["rn_int"] = randint(0, len(df_int['Intervals'])-1)
+
+# callback function to change the random number stored in state
+def change_number():
+    st.session_state["rn_int"] = randint(0, len(df_int['Intervals'])-1)
+    return
+index_int =  st.session_state.rn_int
+Intervals_random_3 = df_int['Intervals'].iloc[index_int]
+
+# process
+if st.checkbox("Generate", on_change=change_number):
+    progress = st.progress(0)
+    for i in range(100):
+        time.sleep(0.01)
+        progress.progress(i+1)
+    st.write(Intervals_random_3)
+    st.markdown(" ")
 
 
