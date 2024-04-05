@@ -98,9 +98,9 @@ st.markdown(" ")
 option_4 = st.selectbox('4 notes chords list:',(df_4['Accordo'].unique()), placeholder='Select one chord to visualize the position',index=None)
 if option_4 != None:
     if len(option_4.split(' ')) == 5:
-        img_str = "{}\{}.jpg".format(option_4.split(' ')[1] + ' ' + option_4.split(' ')[2] + ' ' + option_4.split(' ')[3], option_4)
+        img_str = "{}/{}.jpg".format(option_4.split(' ')[1] + ' ' + option_4.split(' ')[2] + ' ' + option_4.split(' ')[3], option_4)
     else: 
-        img_str = "{}\{}.jpg".format(option_4.split(' ')[1] + ' ' + option_4.split(' ')[2], option_4)
+        img_str = "{}/{}.jpg".format(option_4.split(' ')[1] + ' ' + option_4.split(' ')[2], option_4)
     image_url_4 = img_str
     image_4 = Image.open(image_url_4)
     st.image(image_4, width=700) 
