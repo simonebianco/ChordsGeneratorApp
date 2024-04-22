@@ -8,7 +8,7 @@ from random import randint
 def create_df():
     note = {'Note': ['DO', 'REb', 'RE', 'MIb', 'MI', 'FA', 'SOLb', 'SOL', 'LAb', 'LA', 'SIb', 'SI']}
     posizione = {'Posizione': ['Fondamentale', 'Primo Rivolto', 'Secondo Rivolto', 'Terzo Rivolto']}
-    stato = {'Stato': ['Settima Maggiore', 'Settima Dominante', 'Settima Minore', 'Settima Semidiminuito', 'Settima Diminuito', 'Minore Settima Maggiore', 'Settima Maggiore Aumentato']}
+    stato = {'Stato': ['Settima Maggiore', 'Settima Dominante', 'Settima Minore', 'Settima Semidiminuito', 'Settima Diminuito', 'Minore Settima Maggiore', 'Settima Maggiore Aumentato', 'Settima Dominante Aumentato']}
     note_df = pd.DataFrame(note)
     posizione_df = pd.DataFrame(posizione)
     stato_df = pd.DataFrame(stato)
@@ -27,7 +27,7 @@ df_quad = create_df()
 # pagina
 st.title('Chords Generator App')
 st.markdown("____")
-text = 'Selecting the checkbox automatically generates a chord, the solution of which can be seen later with the specific button. In the perimeter of random chords there are 336 possibilities, representing the 12 notes, in 4 turns for 7 state (Seventh Major, Seventh Dominant, Seventh Minor, Seventh Semidiminished, Seventh Diminished, , Minor Seventh Major, Seventh Major Augmented).'
+text = 'Selecting the checkbox automatically generates a chord, the solution of which can be seen later with the specific button. In the perimeter of random chords there are 384 possibilities, representing the 12 notes, in 4 turns for 8 state (Seventh Major, Seventh Dominant, Seventh Minor, Seventh Semidiminished, Seventh Diminished, , Minor Seventh Major, Seventh Major Augmented, Seventh Dominant Augmented).'
 st.write(text)
 st.markdown("____")
 st.write('Select the checkbox for generate a random chord')
